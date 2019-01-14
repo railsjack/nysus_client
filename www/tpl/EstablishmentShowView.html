@@ -1,0 +1,118 @@
+  <div class="primary-content dark">
+    <div class="container" style="box-sizing: border-box; ">
+
+      <div class="row content-header">
+
+<!--         <div class="col-xs-3 icon">
+          <i class="icon-glass establishment-icon"></i>
+        </div> -->
+
+        <div class="col-xs-12 details">
+          <a href="#" class="btn btn-red pull-right">
+            <span id="favorite" class="glyphicon glyphicon-star-empty"></span>
+          </a>
+          <h2>
+            <% if(logo_url !== null && logo_url !== "") { %>
+              <img style="max-height: 40px; max-width: 60px" src="<%= logo_url %>"/>
+            <% } %>
+            <%=name %>
+          </h2>
+          <% for(var i = 0; i < establishment_categories.length; i++){ %>
+            <span class="label label-red"><%= establishment_categories[i].establishment_category.title %></span>
+          <% } %><br/><br/>
+            <div class="address-button">
+              <a onClick="window.open('http://maps.google.com/maps?q=<%= address_1 %> <%= city %>,<%= state %> <%= zipcode %>','_system')">
+                <i class="icon-direction"></i>
+                <%= address_1 %> <%= city %>,<%= state %> <%= zipcode %>
+              </a>
+            </div>
+
+            <% if(phone != undefined) { %>
+              <div class="address-button">
+                <a href="tel://<%= phone %>">
+                  <i class="icon-phone"></i>
+                  <%= phone %>
+                </a>
+              </div>
+            <% } %>
+
+            <div class="row red-buttons">
+              <div>
+
+                <% if(website) { %>
+                  <a onClick="window.open('<%= 'http://' + website %>','_system')">
+                    <i class="fa fa-globe"></i>
+                  </a>
+                <% } %>
+
+                <% if(facebook_url) { %>
+                  <a class="facebook" onClick="window.open('<%= 'http://' + facebook_url %>','_system')">
+                    <i class="fa fa-facebook"></i>
+                  </a>
+                <% } %>
+
+                <% if(twitter_url) { %>
+                  <a onClick="window.open('<%= 'http://' + twitter_url %>','_system')">
+                    <i class="fa fa-twitter"></i>
+                  </a>
+                <% } %>
+
+                <% if(youtube_url) { %>
+                  <a onClick="window.open('<%= 'http://' + youtube_url %>','_system')">
+                    <i class="fa fa-youtube"></i>
+                  </a>
+                <% } %>
+
+              </div>
+            </div>
+
+        </div>
+      </div>
+
+        <div class="list-container">
+          <a data-toggle="collapse" data-target="#specials">
+            <i class="icon-plus-squared"></i>Specials
+          </a>
+
+          <ul id="specials" class="collapse" data-role="listview">
+            <% if(hasSpecials) { %>
+              <% _.each(specials, function(special){ %>
+                  <li>
+                      <p>&nbsp;<%= moment(special.special.start_time).format("dddd, MMMM Do YYYY") %></p>
+                      <p>&nbsp;<%= special.special.description %></p>
+                  </li>
+              <% }) %>
+            <% } else { %>
+              <p>No Specials</p>
+            <% } %>
+          </ul>
+        </div>
+
+        <div class="list-container">
+          <a data-toggle="collapse" data-target="#events">
+            <i class="icon-plus-squared"></i>Events
+          </a>
+
+          <ul id="events" class="collapse" data-role="listview">
+            <% if(hasEvents) { %>
+              <% _.each(events, function(event){ %>
+                  <li>
+                      <p>&nbsp;<%= moment(event.event.start_time).format("dddd, MMMM Do YYYY, h:mm a") %></p>
+                      <p>&nbsp;<%= event.event.description %></p>
+                  </li>
+              <% }) %>
+            <% } else { %>
+              <p>No Events</p>
+            <% } %>
+          </ul>
+        </div>
+        <% if(!this.model.attributes.user){ %>
+        <div class="col-xs-12 details">
+          <a href="#claim/<%=id %>" class="pull-right">Is this your place?</a>
+        </div>
+        <% } %>
+      </div>
+  </div>
+</div>
+
+<div style="width:1px; height: 1px;"></div>

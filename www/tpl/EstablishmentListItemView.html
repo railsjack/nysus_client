@@ -1,0 +1,57 @@
+ <a href="#establishments/<%= id %>">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-10">
+        <h3 class="establishment-name">
+          <span>
+          <% if(logo_url !== null && logo_url !== "") { %>
+            <img style="max-height: 40px; max-width: 60px" src="<%= logo_url %>"/>
+          <% } %>
+          <%= name %></span></h3>
+        <% for(var i = 0; i < establishment_categories.length; i++){ %>
+            <span class="label label-red"><%= establishment_categories[i].establishment_category.title %></span>
+          <% } %>
+
+        <% if(specials.length > 0) { %>
+          <% _.each(specials, function(special){ %>
+               <p class="specials"><span class="xspecials-bullet"><i class="xicon-fire" style="font-size: 28px"></i></span>
+                <div>
+                  <strong><%= moment(special.special.start_time).format("dddd, MMMM Do YYYY") %></strong>
+                  <br>
+                  <strong><%= special.special.description %></strong>
+                </div>
+               </p>
+          <% }) %>
+        <% } else { %>
+          <br /><i>No Specials</i>
+        <% } %>
+
+        <div class="clearfix" style="margin-bottom: 10px;"></div>
+
+        <% if(events.length > 0) { %>
+          <% _.each(events, function(event){ %>
+               <p class="events"><span class="xevents-bullet"><i style="font-size: 28px" class="xicon-calendar"></i></span>
+                <div>
+                  <strong><%= moment(event.event.start_time).format("dddd, MMMM Do YYYY, h:mm a") %></strong>
+                  <br>
+                  <strong><%= event.event.description %></strong>
+                </div>
+               </p>
+          <% }) %>
+        <% } else { %>
+          <i>No Events</i>
+        <% } %>
+
+      </div>
+
+      <div class="col-xs-1">
+        <span style="font-size: 14px"><%= Math.round(distance * 10)/10 %> miles away</span><br/>
+        <i class="icon-right-open" style="font-size: 60px;
+left: -40px;
+position: relative;
+color: #a43634;
+line-height: 76px;"></i>
+      </div>
+    </div>
+  </div>
+</a>

@@ -1,0 +1,46 @@
+<div class="container">
+  <div class="row">
+
+    <div class="col-md-6">
+      <div class="row">
+        <a href="" class="close-modal img-circle" data-dismiss="modal"><i class="icon-cancel-circled"></i></a>
+        <div class="col-xs-11">
+          <h3 class="establishment-name">
+            <span>
+              <% if(logo_url !== null && logo_url !== "") { %>
+                <img style="max-width: 60px; max-height: 60px" src="<%= logo_url %>">
+              <% } %> 
+              <%= name %>
+            </span>
+          </h3>
+          <% if(featured !== null && featured && featured_text !== null){ %>
+            <h4><%= featured_text %></h4>
+          <% } %>
+          <% if(events.length > 0) { %>
+            <% _.each(events, function(event){ %>
+              <% console.log(moment().diff(event.event.end_time)) %>
+              <% if (moment().diff(event.event.end_time) < 0){ %>
+                 <p class="events"><span class="xevents-bullet"><i class="xicon-calendar" style="font-size: 18px"></i></span>
+                  <%= moment(event.event.start_time).format("ddd, MMM Do H:mm A") %> - <%= moment(event.event.end_time).format("ddd, MMM Do H:mm A") %><br/>
+                  <%= event.event.title %></p>
+            <% } }) %>
+          <% } else { %>
+            <i class="empty-results">No Events</i>
+          <% } %>
+
+          <% if(specials.length > 0) { %>
+            <% _.each(specials, function(special){ %>
+              <% if (moment().diff(special.special.end_time) < 0){ %>
+                 <p class="specials"><span class="xspecials-bullet"><i class="xicon-fire" style="font-size: 18px"></i></span>
+                    <%= moment(special.special.start_time).format("ddd, MMM Do H:mm A") %> - <%= moment(special.special.end_time).format("ddd, MMM Do H:mm A") %><br/>
+                    <%= special.special.title %></p>
+            <% } }) %>
+          <% } else { %>
+            <br /><i class="empty-results">No Specials</i>
+          <% } %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

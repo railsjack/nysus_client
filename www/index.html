@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Nysus</title>
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height" />
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap-theme.min.css" />
+    <link rel="stylesheet" href="lib/css/pageslider.css" />
+    <link rel="stylesheet" href="css/animation.css" />
+    <link rel="stylesheet" href="css/filter.css" />
+    <link rel="stylesheet" href="css/filter-codes.css" />
+    <link rel="stylesheet" href="css/filter-embedded.css" />
+    <link rel="stylesheet" href="css/filter-ie7-codes.css" />
+    <link rel="stylesheet" href="css/filter-ie7.css" />
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="bower_components/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css" />
+    <link rel="stylesheet" href="css/font-awesome.min.css" />
+    <link rel="stylesheet" href="css/nysus.css" />
+
+  </head>
+
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+      <div class="navbar-header">
+        <a id="back-button" class="btn btn-red navbar-btn pull-left">Back</a>
+        <div class="navbar-brand" style="z-index: -1000"><img src="img/logo.png" width="40%" /></div>
+        <a class="btn btn-red pull-right" style="margin-right: 6px; position: absolute; top: 8px; right: -1px; border: 2px solid #AB3B39" href="#">
+          <span class="glyphicon glyphicon-home"></span>
+        </a>
+      </div>
+      <a href="#account" class="btn btn-red pull-right float-btn"><span class="glyphicon glyphicon-cog"></span></a>
+    </nav>
+
+    <nav id="footer" class="navbar navbar-default navbar-fixed-bottom" style="height: 65px">
+      <div class="container">
+        <div class="row">
+          <div class="col-xs-3"><a href="#account"><i class="glyphicon glyphicon-star"></i><br />Favorites</a></div>
+          <div class="col-xs-3"><a id="map-btn" href="#establishments/map"><i class="glyphicon glyphicon-map-marker"></i><br />Map</a></div>
+          <div class="col-xs-3"><a id="list" href="#search/filter/list/::"><i class="glyphicon glyphicon-th-list"></i><br />List</a></div>
+          <div class="col-xs-3"><a id="filter" href="#search/filter"><i class="glyphicon glyphicon-search"></i><br />Search</a></div>
+        </div>
+        </div>
+      </div>
+    </nav>
+
+    <script>
+        //var api_host = "http://192.168.1.64:3000";
+        var api_host = "http://54.186.200.89:3000";
+     </script>
+    <script src="cordova.js"></script>
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="bower_components/underscore/underscore.js"></script>
+    <script src="bower_components/backbone/backbone.js"></script>
+    <script src="bower_components/marionette/lib/backbone.marionette.min.js"></script>
+    <script src="bower_components/backbone-route-filter/backbone-route-filter-min.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="lib/js/backbone.bootstrap-modal.js"></script>
+    <script src="bower_components/store/dist/store2.min.js"></script>
+    <script src="bower_components/moment/min/moment.min.js"></script>
+    <script src="bower_components/fittext/fittext.js"></script>
+    <script src="bower_components/noty/js/noty/packaged/jquery.noty.packaged.min.js"></script>
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCSHp8qz-Ak78nCw7d4dZFYeSQzZebuWs0&sensor=true"></script>
+    <script src="lib/js/pageslider.js"></script>
+    <script src="lib/js/richmarker.js"></script>
+    <!-- // <script src="bower_components/d3/d3.min.js"></script> -->
+
+    <script src="js/application.js"></script>
+    <script src="js/utils/templates.js?_=3"></script>
+    <script src="js/utils/maps.js"></script>
+    <script src="js/utils/dates.js"></script>
+    <script src="js/utils/typeahead.js"></script>
+
+    <script type="text/javascript" src="bower_components/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js"></script>
+
+    <script src="js/models/EstablishmentModel.js"></script>
+
+    <script src="js/routers/ApplicationRouter.js?_=1"></script>
+
+    <script src="js/views/EstablishmentListView.js"></script>
+    <script src="js/views/EstablishmentListItemView.js"></script>
+    <script src="js/views/HomeView.js"></script>
+    <script src="js/views/ListingView.js"></script>
+    <script src="js/views/MapView.js?_=5"></script>
+    <script src="js/views/MapModalView.js"></script>
+    <script src="js/views/SearchView.js"></script>
+    <script src="js/views/EstablishmentShowView.js"></script>
+    <script src="js/views/LoginView.js?_=1"></script>
+    <script src="js/views/AccountView.js?_=2"></script>
+    <script src="js/views/EstablishmentClaimView.js"></script>
+    <script src="js/views/FilterView.js?_=2"></script>
+
+    <script type="text/javascript">
+        app.initialize();
+    </script>
+  </body>
+</html>
